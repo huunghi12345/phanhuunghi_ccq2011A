@@ -50,21 +50,25 @@ $list = Product::where('status', '!=', 0)
                                  <input type="checkbox">
                               </td>
                               <td>
-                                 <img src="../public/images/ <?=$item->img;?>" alt=" <?=$item->img;?>">
+                                 <img src="../public/images/product <?= $item->img; ?>" alt=" <?= $item->img; ?>">
                               </td>
                               <td>
                                  <div class="name">
                                     <?= $item->name; ?>
                                  </div>
                                  <div class="function_style">
-                                    <a href="#">Hiện</a> |
-                                    <a href="#">Chỉnh sửa</a> |
-                                    <a href="product_show.html">Chi tiết</a> |
-                                    <a href="#">Xoá</a>
+                                    <?php if ($item->status == 1) : ?>
+                                       <a class="text-success" href="index.php?option=category&cat=status&id=<?= $item->id; ?>">Hiện</a> |
+                                    <?php else : ?>
+                                       <a class="text-danger" href="index.php?option=category&cat=status&id=<?= $item->id; ?>">Ẩn</a> |
+                                    <?php endif; ?>
+                                    <a href="index.php?option=category&cat=edit&id=<?= $item->id; ?>">Chỉnh sửa</a> |
+                                    <a href="index.php?option=category&cat=show&id=<?= $item->id; ?>">Chi tiết</a> |
+                                    <a href="index.php?option=category&cat=detele&id=<?= $item->id; ?>">Xoá</a>
                                  </div>
                               </td>
-                              <td> <?=$item->name;?></td>
-                              <td> <?=$item->name;?></td>
+                              <td> <?= $item->name; ?></td>
+                              <td> <?= $item->name; ?></td>
                            </tr>
                         <?php endforeach; ?>
                      <?php endif; ?>

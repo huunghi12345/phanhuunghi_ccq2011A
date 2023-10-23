@@ -6,7 +6,6 @@ $list = Brand::where('status', '!=', 0)
    ->orderBy('created_at', 'DESC')
    ->get();
 ?>
-?>
 <?php require_once '../views/backend/header.php'; ?>
 <!-- CONTENT -->
 <form action="index.php?option=brand&cat=process" method="post" enctype="multipart/form-data">
@@ -76,7 +75,7 @@ $list = Brand::where('status', '!=', 0)
                                        <input type="checkbox">
                                     </td>
                                     <td>
-                                       <img src="../public/images/<?= $item->image; ?>" alt=" <?= $item->image; ?>">
+                                       <img src="../public/images/brand/<?= $item->image; ?>" alt=" <?= $item->image; ?>">
                                     </td>
                                     <td>
                                        <div class="name">
@@ -84,13 +83,23 @@ $list = Brand::where('status', '!=', 0)
                                        </div>
                                        <div class="function_style">
                                           <?php if ($item->status == 1) : ?>
-                                             <a href="index.php?option=brand&cat=status&id=<?= $item->id; ?>">Hiện</a> |
+                                             <a href="index.php?option=brand&cat=status&id=<?= $item->id; ?>" class="btn btn-success btn-xs">
+                                                <i class="fas fa-toggle-on"></i>Hiện
+                                             </a>
                                           <?php else : ?>
-                                             <a class="text-danger" href="index.php?option=brand&cat=status&id=<?= $item->id; ?>">Ẩn</a>
+                                             <a href="index.php?option=brand&cat=status&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                                <i class="fas fa-toggle-off"></i>Ẩn
+                                             </a>
                                           <?php endif; ?>
-                                          <a href="index.php?option=brand&cat=edit&id=<?= $item->id; ?>">Chỉnh sửa</a> |
-                                          <a href="index.php?option=brand&cat=show&id=<?= $item->id; ?>">Chi tiết</a> |
-                                          <a href="index.php?option=brand&cat=detele&id=<?= $item->id; ?>">Xoá</a>
+                                          <a href="index.php?option=brand&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
+                                             <i class="fas fa-edit"></i>Chỉnh sửa
+                                          </a>
+                                          <a href="index.php?option=brand&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                             <i class="fas fa-eye"></i>Chi tiết
+                                          </a>
+                                          <a href="index.php?option=brand&cat=detele&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                             <i class="fas fa-trash"></i>Xóa
+                                          </a>
                                        </div>
                                     </td>
                                     <td><?= $item->slug; ?></td>
