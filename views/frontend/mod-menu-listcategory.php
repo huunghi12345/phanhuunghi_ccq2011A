@@ -3,7 +3,7 @@
 use App\Models\Category;
 
 $mod_menu_listcategory = Category::where([['parent_id', '=', 0], ['status', '=', 1]])
-    ->orderBy('sort order', 'ASC')
+    ->orderBy('sort_order', 'ASC')
     ->get();
 ?>
 <div class="dropdown list-category">
