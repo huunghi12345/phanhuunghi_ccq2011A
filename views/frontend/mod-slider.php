@@ -9,9 +9,9 @@ $mod_slider = Banner::where([['position', '=', 'slideshow'], ['status', '=', 1]]
 <section class="hdl-slideshow">
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-            <?php $index = 0; ?>
+            <?php $index = 1; ?>
             <?php foreach ($mod_slider as $slider) : ?>
-                <?php if ($index == 0) : ?>
+                <?php if ($index == 1) : ?>
                     <div class="carousel-item active">
                         <img src="public/images/banner/<?= $slider->image; ?>" class="d-block w-100" alt="<?= $slider->image; ?>">
                     </div>
